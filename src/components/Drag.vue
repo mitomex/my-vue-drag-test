@@ -1,18 +1,31 @@
 <template>
   <div>
-    <ul class="list" ref="list">
-      <li class="item">item01</li>
-      <li class="item">item02</li>
-      <li class="item">item03</li>
-    </ul>
+    <div v-for="item in items" :key="item.id">
+      <ul class="list" ref="list">
+        <li class="item">item01</li>
+        <li class="item">item02</li>
+        <li class="item">item03</li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
 import dragula from "dragula";
 export default {
+  data() {
+    return {
+      items: [
+        {
+          id: 1
+        }
+      ]
+    };
+  },
   mounted() {
-    dragula([this.$refs.list]) // must array;
+    /* eslint-disable no-console */
+    console.log(Array.isArray(this.$refs.list)); // this.$refs.list's return value is Array, when it is used by `v-for`
+    dragula(this.$refs.list); // must array
   }
 };
 </script>
