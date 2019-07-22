@@ -12,7 +12,7 @@
 import dragula from "dragula";
 export default {
   mounted() {
-    dragula([this.$refs.list]);
+    dragula([this.$refs.list]) // must array;
   }
 };
 </script>
